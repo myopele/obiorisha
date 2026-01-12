@@ -1,0 +1,590 @@
+<!-- =========================================================
+ SGI — Obi Orisha (Novice) — Module
+ "Beyond 4-Cowrie Divination"
+ Single-file HTML (static). Works on GitHub Pages / Cloudflare Pages.
+ File: sgi-obi-orisha-novice-module.html
+
+ Notes:
+  - Put this file in the SAME folder as: SwamiG.gif  (your SGI logo)
+  - Optional: add a favicon.png in same folder (or remove favicon line)
+========================================================= -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="color-scheme" content="dark light" />
+  <meta name="theme-color" content="#0b0b0f" />
+  <title>SwamiG Institute — Obi Orisha (Novice) | Beyond 4-Cowrie Divination</title>
+  <meta name="description" content="SwamiG Institute (SGI) — Obi Orisha (Novice) Module: Beyond 4-Cowrie Divination. 6-week curriculum expanding from 5 to 9 families of possibilities, casting elements, practice logs, and certification." />
+
+  <!-- Optional favicon (remove if you don't have it) -->
+  <link rel="icon" href="favicon.png" />
+
+  <style>
+    :root{
+      --bg:#0b0b0f; --ink:#f3f4f6; --muted:#bfc3d1;
+      --card:rgba(20,20,28,.92); --soft:rgba(255,255,255,.06);
+      --border:rgba(255,255,255,.12);
+      --accent:#bb66ff; --accent2:#ffd166;
+      --ring:rgba(187,102,255,.35);
+      --ok:#4ade80; --warn:#fbbf24; --bad:#fb7185;
+      --shadow: 0 18px 50px rgba(0,0,0,.55);
+      --r:18px;
+      --max:1100px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:
+        radial-gradient(1100px 700px at 18% -10%, rgba(187,102,255,.22), transparent 60%),
+        radial-gradient(900px 600px at 85% 10%, rgba(255,209,102,.14), transparent 55%),
+        radial-gradient(900px 600px at 50% 110%, rgba(74,222,128,.12), transparent 55%),
+        var(--bg);
+      color:var(--ink);
+      font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
+    }
+
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:26px 16px 64px}
+
+    /* Top bar */
+    .topbar{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter:saturate(160%) blur(10px);
+      background:rgba(11,11,15,.72);
+      border-bottom:1px solid var(--border);
+    }
+    .topbar-inner{
+      max-width:var(--max); margin:0 auto; padding:12px 16px;
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px; text-decoration:none;
+    }
+    .logo{
+      width:46px; height:46px; border-radius:14px;
+      background:rgba(255,255,255,.04);
+      border:1px solid var(--border);
+      box-shadow:0 10px 30px rgba(0,0,0,.35);
+      overflow:hidden;
+      display:grid; place-items:center;
+    }
+    .logo img{
+      width:100%; height:100%; object-fit:cover;
+      transform: translateZ(0);
+    }
+    .brand h1{
+      margin:0; font-size:14px; letter-spacing:.6px; text-transform:uppercase;
+      color:var(--muted); font-weight:700;
+    }
+    .brand .sub{display:block; font-size:12px; letter-spacing:.2px; text-transform:none; color:rgba(255,255,255,.68); font-weight:600}
+    .pillrow{display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end}
+    .pill{
+      padding:7px 10px; border-radius:999px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.04);
+      color:rgba(255,255,255,.78);
+      font-size:12px; font-weight:650;
+    }
+    .pill strong{color:var(--ink)}
+    .pill.accent{border-color:rgba(187,102,255,.45); box-shadow:0 0 0 6px rgba(187,102,255,.10) inset}
+    .pill.gold{border-color:rgba(255,209,102,.45); box-shadow:0 0 0 6px rgba(255,209,102,.10) inset}
+
+    /* Hero */
+    .hero{
+      margin-top:18px;
+      border:1px solid var(--border);
+      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border-radius:calc(var(--r) + 8px);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+    .hero::before{
+      content:"";
+      position:absolute; inset:-2px;
+      background:radial-gradient(800px 400px at 30% 0%, rgba(187,102,255,.28), transparent 55%),
+                 radial-gradient(700px 380px at 85% 30%, rgba(255,209,102,.18), transparent 55%);
+      pointer-events:none;
+      opacity:.9;
+    }
+    .hero-inner{position:relative; padding:28px 22px}
+    .kicker{
+      display:inline-flex; gap:10px; align-items:center;
+      font-weight:800; letter-spacing:.7px; text-transform:uppercase;
+      font-size:12px; color:rgba(255,255,255,.78);
+      background:rgba(255,255,255,.05);
+      border:1px solid var(--border);
+      padding:8px 12px; border-radius:999px;
+    }
+    .kicker .dot{
+      width:10px; height:10px; border-radius:99px;
+      background:var(--accent);
+      box-shadow:0 0 0 6px rgba(187,102,255,.14);
+    }
+    h2{
+      margin:14px 0 8px;
+      font-size:30px; line-height:1.15;
+      letter-spacing:-.3px;
+    }
+    .lead{margin:0; color:rgba(255,255,255,.78); max-width:75ch}
+    .cta-row{margin-top:18px; display:flex; flex-wrap:wrap; gap:10px}
+    .btn{
+      appearance:none; border:none; cursor:pointer;
+      padding:11px 14px; border-radius:14px;
+      background:rgba(255,255,255,.06);
+      border:1px solid var(--border);
+      color:var(--ink);
+      font-weight:750; font-size:14px;
+      transition:transform .08s ease, background .15s ease, border-color .15s ease;
+      text-decoration:none; display:inline-flex; align-items:center; gap:10px;
+    }
+    .btn:hover{transform:translateY(-1px); background:rgba(255,255,255,.09); border-color:rgba(255,255,255,.18)}
+    .btn.primary{
+      background:linear-gradient(135deg, rgba(187,102,255,.92), rgba(255,209,102,.55));
+      border-color:rgba(255,255,255,.18);
+      color:#1b1022;
+      box-shadow:0 16px 36px rgba(187,102,255,.18);
+    }
+    .btn.primary:hover{transform:translateY(-1px) scale(1.01)}
+    .btn .mini{font-size:12px; opacity:.9; font-weight:800; letter-spacing:.4px}
+
+    /* Sections */
+    .grid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:16px;
+      margin-top:16px;
+    }
+    @media (max-width: 920px){
+      .grid{grid-template-columns:1fr}
+      .pillrow{justify-content:flex-start}
+    }
+    .card{
+      border:1px solid var(--border);
+      background:rgba(20,20,28,.74);
+      border-radius:var(--r);
+      box-shadow:0 12px 40px rgba(0,0,0,.42);
+      overflow:hidden;
+    }
+    .card-h{
+      padding:16px 16px 12px;
+      border-bottom:1px solid rgba(255,255,255,.08);
+      display:flex; align-items:flex-start; justify-content:space-between; gap:10px;
+    }
+    .card-h h3{margin:0; font-size:16px; letter-spacing:.2px}
+    .tag{
+      font-size:12px; font-weight:800;
+      padding:6px 10px; border-radius:999px;
+      background:rgba(255,255,255,.05);
+      border:1px solid var(--border);
+      color:rgba(255,255,255,.78);
+      white-space:nowrap;
+    }
+    .card-b{padding:14px 16px 16px; color:rgba(255,255,255,.80)}
+    .card-b p{margin:0 0 12px}
+    .list{margin:10px 0 0; padding:0; list-style:none; display:grid; gap:8px}
+    .li{
+      padding:10px 12px; border-radius:14px;
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.10);
+      display:flex; gap:10px; align-items:flex-start;
+    }
+    .bullet{
+      width:18px; height:18px; border-radius:6px;
+      background:rgba(187,102,255,.25);
+      border:1px solid rgba(187,102,255,.35);
+      box-shadow:0 0 0 6px rgba(187,102,255,.10) inset;
+      flex:0 0 auto;
+      margin-top:2px;
+    }
+    .li strong{color:var(--ink)}
+    .muted{color:rgba(255,255,255,.65)}
+    .small{font-size:13px}
+
+    /* Weeks */
+    .weeks{margin-top:16px}
+    .weeks-grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:12px;
+    }
+    @media (max-width: 980px){ .weeks-grid{grid-template-columns:repeat(2,1fr)} }
+    @media (max-width: 620px){ .weeks-grid{grid-template-columns:1fr} }
+
+    .week{
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.04);
+      border-radius:18px;
+      padding:14px 14px 12px;
+      position:relative;
+      overflow:hidden;
+      min-height: 150px;
+    }
+    .week::before{
+      content:"";
+      position:absolute; inset:-2px;
+      background:
+        radial-gradient(260px 160px at 20% 0%, rgba(187,102,255,.25), transparent 60%),
+        radial-gradient(240px 160px at 95% 40%, rgba(255,209,102,.16), transparent 60%);
+      opacity:.9; pointer-events:none;
+    }
+    .week > *{position:relative}
+    .wk-top{
+      display:flex; align-items:center; justify-content:space-between; gap:10px;
+      margin-bottom:10px;
+    }
+    .wk-num{
+      font-weight:900; font-size:12px; letter-spacing:.7px; text-transform:uppercase;
+      color:rgba(255,255,255,.78);
+      display:inline-flex; align-items:center; gap:8px;
+    }
+    .wk-num .ring{
+      width:24px; height:24px; border-radius:10px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.05);
+      display:grid; place-items:center;
+      box-shadow:0 0 0 8px rgba(187,102,255,.10) inset;
+      font-weight:950;
+    }
+    .wk-title{margin:0; font-size:16px}
+    .wk-list{margin:10px 0 0; padding:0; list-style:none; display:grid; gap:8px}
+    .wk-list li{
+      padding:9px 10px; border-radius:14px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(0,0,0,.18);
+      color:rgba(255,255,255,.78);
+      font-size:13px;
+    }
+    .wk-list li b{color:var(--ink)}
+
+    /* Checklist */
+    .check{
+      display:grid; gap:8px; margin-top:10px;
+    }
+    .check label{
+      display:flex; gap:10px; align-items:flex-start;
+      padding:10px 12px; border-radius:14px;
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.10);
+      cursor:pointer;
+      user-select:none;
+    }
+    .check input{margin-top:3px; accent-color: var(--accent)}
+    .check span{color:rgba(255,255,255,.78)}
+    .check b{color:var(--ink)}
+    .note{
+      margin-top:10px;
+      padding:12px 12px;
+      border-radius:16px;
+      border:1px dashed rgba(255,255,255,.18);
+      background:rgba(255,255,255,.03);
+      color:rgba(255,255,255,.72);
+      font-size:13px;
+    }
+
+    /* Footer */
+    footer{
+      margin-top:22px;
+      color:rgba(255,255,255,.55);
+      font-size:12px;
+      text-align:center;
+    }
+    footer a{color:rgba(255,255,255,.75); text-decoration:none}
+    footer a:hover{text-decoration:underline}
+
+    /* Print */
+    @media print{
+      .topbar{position:static}
+      .btn{display:none !important}
+      body{background:#fff; color:#111}
+      .card,.hero,.week{box-shadow:none}
+      .hero::before,.week::before{display:none}
+      .card{background:#fff}
+      .week{background:#fff}
+      a{text-decoration:none}
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Sticky top bar -->
+  <div class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="#top" aria-label="SwamiG Institute home">
+        <div class="logo" title="SwamiG Institute">
+          <!-- Replace SwamiG.gif if your logo file name differs -->
+          <img src="SwamiG.gif" alt="SwamiG Institute (SGI) logo" />
+        </div>
+        <div>
+          <h1>SwamiG Institute <span class="sub">Obi Orisha — Novice Module</span></h1>
+        </div>
+      </a>
+
+      <div class="pillrow" aria-label="Module highlights">
+        <div class="pill accent"><strong>6 Weeks</strong> • Novice</div>
+        <div class="pill gold"><strong>5 → 9</strong> Families</div>
+        <div class="pill"><strong>Certification</strong> Ceremony</div>
+      </div>
+    </div>
+  </div>
+
+  <main id="top" class="wrap">
+    <!-- HERO -->
+    <section class="hero" aria-label="Module hero">
+      <div class="hero-inner">
+        <span class="kicker"><span class="dot"></span> Beyond 4-Cowrie Divination</span>
+        <h2>Obi Orisha (Novice) — Structured Training & Certification</h2>
+        <p class="lead">
+          This module transitions students from the <b>4-Cowrie divination framework</b> into the
+          <b>Obi Orisha system</b>, expanding interpretation from <b>5 families of possibilities</b>
+          to <b>9 families</b>, while establishing casting discipline, ethical boundaries, and
+          consistent practice.
+        </p>
+
+        <div class="cta-row">
+          <a class="btn primary" href="#weeks" title="Jump to weekly plan">
+            <span class="mini">VIEW</span> Weekly Structure
+          </a>
+          <a class="btn" href="#requirements" title="Jump to prerequisites">
+            <span class="mini">READ</span> Requirements
+          </a>
+          <button class="btn" onclick="window.print()" title="Print or save as PDF">
+            <span class="mini">SAVE</span> Print / PDF
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- OVERVIEW GRID -->
+    <section class="grid" aria-label="Module overview">
+      <article class="card" id="requirements">
+        <div class="card-h">
+          <h3>Purpose & Learning Outcomes</h3>
+          <span class="tag">Novice Level</span>
+        </div>
+        <div class="card-b">
+          <p>
+            The goal is to train the student to move beyond standard 4-Cowrie “Yes/No” foundations into a
+            coherent <b>Obi Orisha casting practice</b> — with clear rules for setup, elements, interpretation,
+            and disciplined record-keeping.
+          </p>
+          <ul class="list">
+            <li class="li"><span class="bullet"></span><div><strong>Discernment:</strong> distinguish 4-Cowrie logic from Obi Orisha logic.</div></li>
+            <li class="li"><span class="bullet"></span><div><strong>Identification:</strong> recognize families and sub-forms within the Obi framework.</div></li>
+            <li class="li"><span class="bullet"></span><div><strong>Execution:</strong> perform a complete Obi Orisha casting with consistency.</div></li>
+            <li class="li"><span class="bullet"></span><div><strong>Ethics:</strong> apply boundaries and protocols when messages are difficult or unclear.</div></li>
+            <li class="li"><span class="bullet"></span><div><strong>Certification:</strong> demonstrate readiness through practice logs + final review.</div></li>
+          </ul>
+        </div>
+      </article>
+
+      <aside class="card">
+        <div class="card-h">
+          <h3>Entry Requirements</h3>
+          <span class="tag">Preparation</span>
+        </div>
+        <div class="card-b">
+          <ul class="list">
+            <li class="li"><span class="bullet"></span><div><strong>4-Cowrie system:</strong> basic proficiency and vocabulary.</div></li>
+            <li class="li"><span class="bullet"></span><div><strong>Casting surface:</strong> stable, consistent, dedicated space.</div></li>
+            <li class="li"><span class="bullet"></span><div><strong>Elements:</strong> familiarity with casting elements used in your house.</div></li>
+            <li class="li"><span class="bullet"></span><div><strong>Obi Orisha elements:</strong> learn setup rules and handling.</div></li>
+            <li class="li"><span class="bullet"></span><div><strong>30-day discipline:</strong> foundational practice / observation recommended.</div></li>
+          </ul>
+
+          <div class="note">
+            <b>Instructor note:</b> “Elements” and “handling rules” may vary by lineage.
+            Keep the framework consistent, and document your house rules for students.
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- WEEKS -->
+    <section class="weeks" id="weeks" aria-label="Weekly structure">
+      <div class="card">
+        <div class="card-h">
+          <h3>6-Week Structure</h3>
+          <span class="tag">5 → 9 Families</span>
+        </div>
+        <div class="card-b">
+          <p class="small muted">
+            Weekly focus follows your outline: establish the 4-Cowrie foundation (Week 1),
+            introduce the Obi Orisha expansion (Week 2), then deepen families and variations (Weeks 3–5),
+            and complete assessment + certification (Week 6).
+          </p>
+
+          <div class="weeks-grid" role="list">
+            <!-- Week 1 -->
+            <article class="week" role="listitem">
+              <div class="wk-top">
+                <div class="wk-num"><span class="ring">1</span> Week 1</div>
+                <span class="tag">Introduction</span>
+              </div>
+              <h4 class="wk-title">4-Cowrie Foundation</h4>
+              <ul class="wk-list">
+                <li><b>5 families</b> of possibilities</li>
+                <li>Ogbe</li>
+                <li>Etawa</li>
+                <li>Ejife</li>
+                <li>Okanran</li>
+                <li>Oyeku</li>
+              </ul>
+            </article>
+
+            <!-- Week 2 -->
+            <article class="week" role="listitem">
+              <div class="wk-top">
+                <div class="wk-num"><span class="ring">2</span> Week 2</div>
+                <span class="tag">Framework</span>
+              </div>
+              <h4 class="wk-title">Obi Orisha Expansion</h4>
+              <ul class="wk-list">
+                <li><b>9 families</b> of possibilities</li>
+                <li>Deepen: <b>Ogbe</b> + <b>Etawa</b></li>
+                <li>Etawa variations: <b>Obita</b>, <b>Akita</b></li>
+                <li>Comparative: 4-Cowrie vs Obi outcomes</li>
+              </ul>
+            </article>
+
+            <!-- Week 3 -->
+            <article class="week" role="listitem">
+              <div class="wk-top">
+                <div class="wk-num"><span class="ring">3</span> Week 3</div>
+                <span class="tag">Family</span>
+              </div>
+              <h4 class="wk-title">Ejife Family</h4>
+              <ul class="wk-list">
+                <li>Ejife variations</li>
+                <li><b>Ejire</b></li>
+                <li><b>Akojan</b></li>
+                <li><b>Eris</b></li>
+              </ul>
+            </article>
+
+            <!-- Week 4 -->
+            <article class="week" role="listitem">
+              <div class="wk-top">
+                <div class="wk-num"><span class="ring">4</span> Week 4</div>
+                <span class="tag">Family</span>
+              </div>
+              <h4 class="wk-title">Okanran Family</h4>
+              <ul class="wk-list">
+                <li>Okanran variations</li>
+                <li><b>Ilera</b></li>
+                <li><b>Aye</b></li>
+                <li>Ethics: hard messages & boundaries</li>
+              </ul>
+            </article>
+
+            <!-- Week 5 -->
+            <article class="week" role="listitem">
+              <div class="wk-top">
+                <div class="wk-num"><span class="ring">5</span> Week 5</div>
+                <span class="tag">Family</span>
+              </div>
+              <h4 class="wk-title">Oyeku Family</h4>
+              <ul class="wk-list">
+                <li>Oyeku (root form)</li>
+                <li>Closure, stillness, unseen influence</li>
+                <li>Ancestral acknowledgment protocols</li>
+              </ul>
+            </article>
+
+            <!-- Week 6 -->
+            <article class="week" role="listitem">
+              <div class="wk-top">
+                <div class="wk-num"><span class="ring">6</span> Week 6</div>
+                <span class="tag">Completion</span>
+              </div>
+              <h4 class="wk-title">Assessment & Certification</h4>
+              <ul class="wk-list">
+                <li>Final supervised casting</li>
+                <li>Interpretation review (oral + written)</li>
+                <li>House rules confirmation</li>
+                <li><b>Certification Ceremony</b></li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRACTICE LOG + CHECKLIST -->
+    <section class="grid" aria-label="Practice and checklist">
+      <article class="card">
+        <div class="card-h">
+          <h3>Daily Practice Protocol</h3>
+          <span class="tag">30-Day Discipline</span>
+        </div>
+        <div class="card-b">
+          <p class="small">
+            Use a simple daily log to build consistency. You can keep it in a notebook or a digital form.
+          </p>
+          <ul class="list">
+            <li class="li"><span class="bullet"></span><div><strong>Question format:</strong> clear, respectful, and specific.</div></li>
+            <li class="li"><span class="bullet"></span><div><strong>Setup:</strong> same surface + same elements for consistency.</div></li>
+            <li class="li"><span class="bullet"></span><div><strong>Result:</strong> record the family + sub-form if present.</div></li>
+            <li class="li"><span class="bullet"></span><div><strong>Interpretation:</strong> write the message in plain language.</div></li>
+            <li class="li"><span class="bullet"></span><div><strong>Action:</strong> note a safe, ethical next step (or “no action”).</div></li>
+          </ul>
+
+          <div class="note">
+            <b>Best practice:</b> keep a “house glossary” page for your students so terms remain consistent.
+          </div>
+        </div>
+      </article>
+
+      <aside class="card">
+        <div class="card-h">
+          <h3>Novice Completion Checklist</h3>
+          <span class="tag">Interactive</span>
+        </div>
+        <div class="card-b">
+          <p class="small muted">Check these off as the student completes them (saved only in this browser).</p>
+
+          <div class="check" id="checklist">
+            <label><input type="checkbox" data-k="req-1"><span><b>Requirement:</b> understands 4-Cowrie 5 families</span></label>
+            <label><input type="checkbox" data-k="req-2"><span><b>Requirement:</b> identifies casting surface + elements</span></label>
+            <label><input type="checkbox" data-k="req-3"><span><b>Obi:</b> demonstrates handling + casting consistency</span></label>
+            <label><input type="checkbox" data-k="req-4"><span><b>Obi:</b> recognizes 9 families framework</span></label>
+            <label><input type="checkbox" data-k="req-5"><span><b>Log:</b> completes a 30-day practice record</span></label>
+            <label><input type="checkbox" data-k="req-6"><span><b>Final:</b> completes supervised casting + review</span></label>
+            <label><input type="checkbox" data-k="req-7"><span><b>Ceremony:</b> attends certification ceremony</span></label>
+          </div>
+
+          <div class="note">
+            <b>Tip:</b> If you want this checklist to sync across devices, connect it to a Google Form or a simple database later.
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <footer>
+      <div>© <span id="yr"></span> SwamiG Institute • Obi Orisha (Novice) Module</div>
+      <div class="muted">For educational purposes within your house rules and lineage protocols.</div>
+    </footer>
+  </main>
+
+  <script>
+    // Footer year
+    document.getElementById('yr').textContent = new Date().getFullYear();
+
+    // Checklist persistence (localStorage)
+    const boxes = document.querySelectorAll('#checklist input[type="checkbox"]');
+    const keyBase = 'sgi-obi-orisha-novice:';
+    boxes.forEach(b => {
+      const k = keyBase + b.dataset.k;
+      const saved = localStorage.getItem(k);
+      if(saved === '1') b.checked = true;
+      b.addEventListener('change', () => {
+        localStorage.setItem(k, b.checked ? '1' : '0');
+      });
+    });
+  </script>
+</body>
+</html>
