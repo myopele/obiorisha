@@ -95,11 +95,11 @@ Notes:
     }
     .pill:hover{transform: translateY(-1px); background: rgba(255,255,255,.09); border-color: rgba(255,255,255,.22)}
     .pill:active{transform: translateY(0)}
-    .pill strong{font-weight:800}
     .apply{
       background: linear-gradient(135deg, rgba(187,102,255,.28), rgba(255,209,102,.20));
       border-color: rgba(255,255,255,.22);
       box-shadow: 0 10px 30px rgba(187,102,255,.18);
+      font-weight:800;
     }
 
     .hero{padding:26px 0 10px}
@@ -141,7 +141,7 @@ Notes:
       box-shadow: 0 0 0 6px rgba(187,102,255,.14);
     }
     h2{margin:10px 0 6px; font-size:30px; line-height:1.15}
-    .sub{margin:0; color:var(--muted); max-width:60ch}
+    .sub{margin:0; color:var(--muted); max-width:70ch}
     .ctaRow{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
     .btn{
       display:inline-flex; align-items:center; justify-content:center; gap:10px;
@@ -179,6 +179,7 @@ Notes:
       margin-top:8px;
     }
     .tag b{color:var(--ink)}
+
     .grid{
       margin-top:16px;
       display:grid; gap:14px;
@@ -194,9 +195,8 @@ Notes:
     .sectionTitle span{font-size:12px; color:var(--muted)}
     ul{margin:10px 0 0; padding-left:18px; color:var(--muted)}
     li{margin:6px 0}
-    .weeks{
-      display:grid; gap:12px;
-    }
+    ol{margin:10px 0 0; padding-left:18px; color:var(--muted)}
+    .weeks{display:grid; gap:12px}
     .week{
       border:1px solid rgba(255,255,255,.12);
       background: rgba(255,255,255,.04);
@@ -226,6 +226,35 @@ Notes:
       background: rgba(187,102,255,.08);
       border-radius: 12px;
     }
+    .topAnchor{scroll-margin-top: 90px}
+
+    /* Intro formatting helpers */
+    .lead{color:var(--muted); margin:0; max-width:85ch}
+    .twoCol{
+      display:grid; gap:14px;
+      grid-template-columns: 1.1fr .9fr;
+      align-items:start;
+    }
+    @media (max-width: 920px){ .twoCol{grid-template-columns:1fr} }
+    .tableWrap{
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      border-radius: 16px;
+      overflow:hidden;
+    }
+    table{
+      width:100%;
+      border-collapse:collapse;
+      font-size:13px;
+    }
+    th,td{
+      padding:10px 12px;
+      border-bottom:1px solid rgba(255,255,255,.10);
+      vertical-align:top;
+    }
+    th{color:var(--ink); text-align:left; background: rgba(255,255,255,.05)}
+    tr:last-child td{border-bottom:none}
+    .small{font-size:12px; color:var(--muted)}
     footer{
       margin-top:22px;
       color:var(--muted);
@@ -234,37 +263,16 @@ Notes:
       opacity:.9;
     }
     .fine{opacity:.85}
-    .topAnchor{scroll-margin-top: 90px}
-  /* ===== Branded Glow Accents ===== */
 
-.glow-mission{
-  box-shadow: 0 0 0 rgba(187,102,255,0);
-}
-.glow-mission:hover{
-  box-shadow: 0 0 18px rgba(187,102,255,.45);
-}
-
-.glow-obipele{
-  box-shadow: 0 0 0 rgba(255,209,102,0);
-}
-.glow-obipele:hover{
-  box-shadow: 0 0 18px rgba(255,209,102,.45);
-}
-
-.glow-ilekes{
-  box-shadow: 0 0 0 rgba(74,222,128,0);
-}
-.glow-ilekes:hover{
-  box-shadow: 0 0 18px rgba(74,222,128,.45);
-}
-
-.glow-warriors{
-  box-shadow: 0 0 0 rgba(251,113,133,0);
-}
-.glow-warriors:hover{
-  box-shadow: 0 0 18px rgba(251,113,133,.45);
-}
-  
+    /* ===== Branded Glow Accents ===== */
+    .glow-mission{box-shadow: 0 0 0 rgba(187,102,255,0)}
+    .glow-mission:hover{box-shadow: 0 0 18px rgba(187,102,255,.45)}
+    .glow-obipele{box-shadow: 0 0 0 rgba(255,209,102,0)}
+    .glow-obipele:hover{box-shadow: 0 0 18px rgba(255,209,102,.45)}
+    .glow-ilekes{box-shadow: 0 0 0 rgba(74,222,128,0)}
+    .glow-ilekes:hover{box-shadow: 0 0 18px rgba(74,222,128,.45)}
+    .glow-warriors{box-shadow: 0 0 0 rgba(251,113,133,0)}
+    .glow-warriors:hover{box-shadow: 0 0 18px rgba(251,113,133,.45)}
   </style>
 </head>
 
@@ -283,38 +291,14 @@ Notes:
         </div>
       </div>
 
-    <nav aria-label="Top navigation">
-
-  <!-- SGI Mission -->
-  <a class="pill glow-mission"
-     href="https://swamiginstitute.com/missionsgi/"
-     target="_blank" rel="noopener">
-    SGI Mission
-  </a>
-
-  <!-- ObiPele -->
-  <a class="pill glow-obipele"
-     href="https://obipele.com"
-     target="_blank" rel="noopener">
-    ObiPele
-  </a>
-
-  <!-- My Ilekes -->
-  <a class="pill glow-ilekes"
-     href="https://myilekes.com"
-     target="_blank" rel="noopener">
-    My Ilekes
-  </a>
-
-  <!-- Warriors 2026 -->
-  <a class="pill glow-warriors"
-     href="https://warriors2026.com"
-     target="_blank" rel="noopener">
-    Warriors 2026
-  </a>
-
-  <!-- Apply -->
-  <a class
+      <!-- FIXED + COMPLETE NAV (your last paste was cut off) -->
+      <nav aria-label="Top navigation">
+        <a class="pill glow-mission" href="https://swamiginstitute.com/missionsgi/" target="_blank" rel="noopener">SGI Mission</a>
+        <a class="pill glow-obipele" href="https://obipele.com" target="_blank" rel="noopener">ObiPele</a>
+        <a class="pill glow-ilekes" href="https://myilekes.com" target="_blank" rel="noopener">My Ilekes</a>
+        <a class="pill glow-warriors" href="https://warriors2026.com" target="_blank" rel="noopener">Warriors 2026</a>
+        <a class="pill apply" href="https://forms.gle/YroX3UXTAwqzE1xS7" target="_blank" rel="noopener">Apply</a>
+      </nav>
     </div>
   </header>
 
@@ -332,6 +316,7 @@ Notes:
 
           <div class="ctaRow">
             <a class="btn primary" href="https://forms.gle/YroX3UXTAwqzE1xS7" target="_blank" rel="noopener">Apply Now</a>
+            <a class="btn" href="#intro">Obi Orisha Introduction</a>
             <a class="btn" href="#weeks">See Weekly Plan</a>
             <a class="btn" href="#cert">Certification</a>
           </div>
@@ -380,6 +365,112 @@ Notes:
       </div>
     </section>
 
+    <!-- ======================================================
+         INCORPORATED: OBI ORISHA INTRODUCTION (from your doc)
+    ======================================================= -->
+    <section class="card topAnchor" id="intro" style="margin-top:14px">
+      <div class="sectionTitle">
+        <h3>Obi Orisha Introduction</h3>
+        <span>orientation • limits • naming</span>
+      </div>
+
+      <p class="lead">
+        There is benefit to those that receive Aborisha initiations to have access to the divine.
+        This access, while always present, may be obscured by ego, doubt, negative energies,
+        ancestors, or other spiritual / energetic provocateurs. Fundamental divination systems
+        exist to provide insight to basic <b>yes-or-no</b> questions within clear limits.
+      </p>
+
+      <div class="hr"></div>
+
+      <div class="twoCol" aria-label="Introduction content grid">
+        <div>
+          <div class="sectionTitle" style="margin-top:0">
+            <h3>Limits of Questioning</h3>
+            <span>ethics-first</span>
+          </div>
+          <ul>
+            <li><b>Yes/No questions only.</b></li>
+            <li>Avoid questions that have known answers.</li>
+            <li>Minimize illegal, immoral, or unethical questions.</li>
+            <li>Refrain from asking the same question twice.</li>
+            <li>Questions that harm self, others, or the environment are off-limits.</li>
+            <li>Questions about oneself are encouraged.</li>
+          </ul>
+
+          <div class="hr"></div>
+
+          <div class="sectionTitle" style="margin-top:0">
+            <h3>From 4-Cowrie to Obi Abata</h3>
+            <span>system evolution</span>
+          </div>
+          <p class="lead">
+            After Aborisha initiations, it is common to receive <b>4 cowries</b> as a first implement
+            for divination. The Four Cowrie Divination System—with its families of possibilities—is
+            profound enough to extend throughout the life of even a very blessed and hardworking Aborisha.
+            In some settings, an alternate level of divination is the <b>Obi Abata</b>, using fresh nuts
+            (split and cast) as an introduction to an alternate or sometimes primary divination system.
+          </p>
+
+          <p class="lead" style="margin-top:10px">
+            In the African diaspora, the nuts may be imported away from their energetic source.
+            Over time, Obi systems evolved to meet Aborisha needs. One such evolution is <b>Obi Orisha</b>:
+            a divination system comprised of four elements affixed with two pairs of attachments—extending
+            the familiar outcome families into broader domains of influence used in Obi Abata-style divination.
+          </p>
+        </div>
+
+        <div>
+          <div class="sectionTitle" style="margin-top:0">
+            <h3>Naming Convention</h3>
+            <span>Obi Orisha identity</span>
+          </div>
+
+          <p class="lead">
+            When presented to an Aborisha, the implement may be renamed after the initiate’s name.
+            The implement in general is referred to as <b>Obi Orisha</b>, while in the hands of an Aborisha
+            it may be referred to as <b>Obi “Aborisha Name”</b>.
+          </p>
+
+          <div class="tableWrap" style="margin-top:12px">
+            <table aria-label="Obi naming examples">
+              <thead>
+                <tr>
+                  <th>Aborisha Name</th>
+                  <th>Obi Orisha Name</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Oshun Kemi</td>
+                  <td>Obi Kemi</td>
+                </tr>
+                <tr>
+                  <td>Ogun Leve</td>
+                  <td>Obi Leve</td>
+                </tr>
+                <tr>
+                  <td>Shango Yemi</td>
+                  <td>Obi Yemi</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p class="small" style="margin-top:10px">
+            Example phrasing in a reading: “The Obi Yemi says…” • “The Obi Leve responds with…”
+          </p>
+
+          <div class="hr"></div>
+
+          <div class="note">
+            <b>Module purpose:</b> to facilitate the interaction between the Aborisha, the Obi Orisha,
+            and divine inclination—towards clarity, alignment, and ethical guidance.
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- DETAILS GRID -->
     <section class="grid" aria-label="Course details">
       <div class="card">
@@ -390,7 +481,7 @@ Notes:
         <ul>
           <li>Learn the foundational “Yes / Maybe / No” outcomes from 4-cowrie.</li>
           <li>Transition into Obi Abata / Obi Orisha patterns and attachments.</li>
-          <li>Cast <b>1x daily</b>, record the pattern, and write a short interpretation.</li>
+          <li>Cast <b>16x daily</b>, record the pattern, and write a short interpretation.</li>
           <li>Submit photos + findings for feedback.</li>
           <li>Use a support chart to validate meaning + ethical direction.</li>
         </ul>
@@ -521,7 +612,6 @@ Notes:
   </main>
 
   <script>
-    // year
     document.getElementById('y').textContent = new Date().getFullYear();
   </script>
 </body>
