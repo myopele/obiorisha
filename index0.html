@@ -1,6 +1,5 @@
 <!-- =========================================================
-SGI — Divination Mini Series
-Obi Orisha (Novice) — "Beyond 4-Cowries"
+SGI — Obi Orisha (Novice) — "Beyond 4-Cowries"
 Single-file HTML (static). Works on GitHub Pages / Cloudflare Pages.
 File: sgi-obi-orisha-beyond-4cowries.html
 
@@ -9,8 +8,9 @@ Notes:
 - Optional: add favicon.png in same folder (or remove favicon line)
 - "Apply" button links to your Google Form:
   https://forms.gle/YroX3UXTAwqzE1xS7
+- NEW: "Obi Orisha Chart" pill links to: obiorishachart.html
 ========================================================= -->
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -18,7 +18,10 @@ Notes:
   <meta name="color-scheme" content="dark light" />
   <meta name="theme-color" content="#0b0b0f" />
   <title>SwamiG Institute — Obi Orisha (Novice) | Beyond 4-Cowries</title>
-  <meta name="description" content="SwamiG Institute (SGI) — Obi Orisha (Novice): Beyond 4-Cowries. A structured mini-series expanding from 5 to 9 Obi families, practice logs, ethics, and certification readiness." />
+  <meta name="description" content="SwamiG Institute (SGI) — Obi Orisha (Novice): Beyond 4-Cowries. Orientation, practice, and structured learning path." />
+
+  <!-- Optional favicon (put favicon.png in same folder) -->
+  <!-- <link rel="icon" href="favicon.png" /> -->
 
   <style>
     :root{
@@ -28,459 +31,232 @@ Notes:
       --accent:#bb66ff; --accent2:#ffd166;
       --ring:rgba(187,102,255,.35);
       --ok:#4ade80; --warn:#fbbf24; --bad:#fb7185;
-
-      --radius:18px;
-      --shadow:0 20px 60px rgba(0,0,0,.35);
-      --max:1100px;
+      --shadow:0 18px 60px rgba(0,0,0,.45);
     }
     *{box-sizing:border-box}
-    html,body{height:100%}
     body{
-      margin:0;
-      font:16px/1.6 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Inter,Arial;
-      background:
-        radial-gradient(1200px 600px at 15% 10%, rgba(187,102,255,.22), transparent 60%),
-        radial-gradient(900px 500px at 85% 0%, rgba(255,209,102,.14), transparent 60%),
-        radial-gradient(900px 700px at 70% 90%, rgba(74,222,128,.10), transparent 60%),
+      margin:0; background:
+        radial-gradient(1200px 700px at 20% -10%, rgba(187,102,255,.22), transparent 55%),
+        radial-gradient(900px 520px at 85% 0%, rgba(255,209,102,.14), transparent 50%),
+        radial-gradient(900px 620px at 50% 110%, rgba(74,222,128,.08), transparent 55%),
         var(--bg);
       color:var(--ink);
+      font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
     }
     a{color:inherit}
-    .wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 70px}
-    .card{
-      background:var(--card);
-      border:1px solid var(--border);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      overflow:hidden;
-    }
-    .soft{background:var(--soft)}
-    .row{display:flex; gap:14px; flex-wrap:wrap}
-    .muted{color:var(--muted)}
-    .tiny{font-size:12px}
-    .kicker{
-      display:flex; align-items:center; gap:10px;
-      font-weight:700; letter-spacing:.12em; text-transform:uppercase;
-      color:rgba(243,244,246,.92);
-      font-size:12px;
-    }
-    .dot{width:10px; height:10px; border-radius:999px; background:var(--accent); box-shadow:0 0 0 6px rgba(187,102,255,.18)}
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      gap:10px;
-      padding:10px 14px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.14);
-      background:rgba(255,255,255,.06);
-      text-decoration:none;
-      font-weight:700;
-      transition:.18s transform,.18s background,.18s border-color;
-      white-space:nowrap;
-    }
-    .btn:hover{transform:translateY(-1px); background:rgba(255,255,255,.09); border-color:rgba(255,255,255,.20)}
-    .btn.primary{
-      background:linear-gradient(135deg, rgba(187,102,255,.95), rgba(255,209,102,.78));
-      color:#0b0b0f;
-      border:0;
-    }
-    .btn.primary:hover{background:linear-gradient(135deg, rgba(187,102,255,1), rgba(255,209,102,.92))}
+    .wrap{max-width:1100px;margin:0 auto;padding:18px 16px 60px}
     header{
       position:sticky; top:0; z-index:50;
       backdrop-filter: blur(10px);
-      background:linear-gradient(to bottom, rgba(11,11,15,.88), rgba(11,11,15,.55));
-      border-bottom:1px solid rgba(255,255,255,.08);
+      background: linear-gradient(to bottom, rgba(11,11,15,.88), rgba(11,11,15,.45));
+      border-bottom:1px solid rgba(255,255,255,.06);
     }
-    .headInner{
-      max-width:var(--max); margin:0 auto;
-      padding:14px 18px;
-      display:flex; align-items:center; gap:16px; flex-wrap:wrap;
-    }
-    .brand{
-      display:flex; align-items:center; gap:12px;
+    .bar{max-width:1100px;margin:0 auto;padding:14px 16px;display:flex;align-items:center;gap:14px}
+    .logo{
+      display:flex; align-items:center; gap:12px; min-width:240px;
       text-decoration:none;
-      min-width:240px;
     }
-    .brand img{
+    .logo img{
       width:44px; height:44px; object-fit:contain;
-      border-radius:12px;
-      background:rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.10);
-      box-shadow:0 0 0 6px rgba(187,102,255,.12);
-      transition:.18s transform;
+      filter: drop-shadow(0 10px 24px rgba(187,102,255,.25));
+      animation: floaty 3.8s ease-in-out infinite;
     }
-    .brand:hover img{transform:rotate(-2deg) scale(1.03)}
-    .brand .title{
-      display:flex; flex-direction:column;
-      line-height:1.15;
+    @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+    .logo .t{
+      display:flex; flex-direction:column; line-height:1.1;
     }
-    .brand .title b{font-size:14px}
-    .brand .title span{font-size:12px; color:var(--muted)}
-    nav{display:flex; gap:10px; flex-wrap:wrap; margin-left:auto}
+    .logo .t b{font-size:14px; letter-spacing:.3px}
+    .logo .t span{font-size:12px; color:var(--muted)}
+    .pills{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end;flex:1}
     .pill{
-      padding:8px 12px; border-radius:999px;
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(255,255,255,.05);
-      text-decoration:none; font-weight:700; font-size:13px;
+      display:inline-flex;align-items:center;gap:8px;
+      padding:9px 12px;border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      text-decoration:none;
+      box-shadow: 0 10px 28px rgba(0,0,0,.25);
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+      font-weight:650; font-size:13px;
     }
-    .pill:hover{border-color:rgba(255,255,255,.22); background:rgba(255,255,255,.08)}
-    .pill.apply{background:rgba(187,102,255,.20); border-color:rgba(187,102,255,.35)}
-    .pill.glow-mission{box-shadow:0 0 0 0 rgba(255,209,102,.0)}
-    .pill.glow-obipele{box-shadow:0 0 0 0 rgba(187,102,255,.0)}
-    .pill.glow-ilekes{box-shadow:0 0 0 0 rgba(74,222,128,.0)}
-    .pill.glow-warriors{box-shadow:0 0 0 0 rgba(251,113,133,.0)}
-
-    .hero{margin-top:18px}
-    .heroGrid{
-      display:grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap:16px;
+    .pill:hover{transform:translateY(-1px); background:rgba(255,255,255,.085); border-color:rgba(255,255,255,.22)}
+    .pill.primary{
+      background: linear-gradient(135deg, rgba(187,102,255,.22), rgba(255,209,102,.10));
+      border-color: rgba(187,102,255,.35);
+    }
+    .pill .dot{
+      width:8px;height:8px;border-radius:999px;background:var(--accent);
+      box-shadow:0 0 0 6px rgba(187,102,255,.16);
+    }
+    .pill.primary .dot{background:var(--accent2); box-shadow:0 0 0 6px rgba(255,209,102,.12)}
+    .hero{
+      padding:28px 0 6px;
+      display:grid; grid-template-columns: 1.2fr .8fr; gap:16px;
       align-items:stretch;
     }
-    @media (max-width: 960px){
-      .heroGrid{grid-template-columns:1fr}
+    @media (max-width: 900px){ .hero{grid-template-columns:1fr} .logo{min-width:auto} }
+    .card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:18px;
+      box-shadow: var(--shadow);
+      padding:18px;
     }
-    .hero .card{padding:18px}
-    h1{margin:10px 0 8px; font-size:34px; line-height:1.1}
-    .sub{font-size:15px; color:var(--muted); margin:0 0 14px}
-    .ctaRow{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
-    .miniGrid{
+    .hero h1{
+      margin:0 0 6px;
+      font-size:28px;
+      letter-spacing:.2px;
+    }
+    .sub{color:var(--muted); margin:0}
+    .tagrow{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+    .tag{
+      font-size:12px; color:var(--muted);
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      padding:7px 10px; border-radius:999px;
+    }
+    .grid{
       display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:10px;
+      grid-template-columns: repeat(12, 1fr);
+      gap:14px;
       margin-top:14px;
     }
-    @media (max-width: 620px){
-      .miniGrid{grid-template-columns:1fr}
-    }
-    .mini{
-      padding:12px;
+    .col-8{grid-column: span 8}
+    .col-4{grid-column: span 4}
+    @media (max-width: 900px){ .col-8,.col-4{grid-column: span 12} }
+    h2{margin:0 0 10px;font-size:18px}
+    .list{margin:10px 0 0;padding-left:18px;color:var(--muted)}
+    .list li{margin:6px 0}
+    .note{
+      margin-top:12px;
+      padding:10px 12px;
       border-radius:14px;
-      background:rgba(255,255,255,.05);
-      border:1px solid rgba(255,255,255,.10);
-    }
-    .mini b{display:block; margin-bottom:2px}
-    .section{
-      margin-top:16px;
-      padding:18px;
-    }
-    .sectionTitle{
-      display:flex; align-items:flex-end; justify-content:space-between;
-      gap:12px; flex-wrap:wrap;
-      margin-bottom:12px;
-    }
-    .sectionTitle h2{margin:0; font-size:20px}
-    .sectionTitle span{font-size:12px; color:var(--muted)}
-    .grid2{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:14px;
-    }
-    @media (max-width: 900px){
-      .grid2{grid-template-columns:1fr}
-    }
-    ul{margin:10px 0 0 18px}
-    li{margin:6px 0}
-    .badge{
-      display:inline-flex; gap:8px; align-items:center;
-      padding:6px 10px; border-radius:999px;
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(255,255,255,.05);
-      font-size:12px; font-weight:800;
-      color:rgba(243,244,246,.95);
-    }
-    .badge i{
-      width:10px; height:10px; border-radius:999px;
-      display:inline-block;
-      background:var(--accent2);
-      box-shadow:0 0 0 6px rgba(255,209,102,.12);
-    }
-    .table{
-      width:100%; border-collapse:separate; border-spacing:0;
-      overflow:hidden; border-radius:14px;
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(255,255,255,.03);
-    }
-    .table th,.table td{
-      padding:12px 12px;
-      border-bottom:1px solid rgba(255,255,255,.08);
-      vertical-align:top;
-      font-size:14px;
-    }
-    .table th{
-      text-align:left;
-      font-size:12px; letter-spacing:.08em; text-transform:uppercase;
-      color:rgba(243,244,246,.88);
-      background:rgba(255,255,255,.06);
-    }
-    .table tr:last-child td{border-bottom:0}
-    .callout{
-      padding:14px;
-      border-radius:16px;
-      border:1px dashed rgba(255,255,255,.20);
-      background:rgba(187,102,255,.10);
-    }
-    .hr{
-      height:1px; background:rgba(255,255,255,.10);
-      margin:14px 0;
-    }
-    footer{
-      margin-top:24px;
-      padding:18px;
-      border-radius:18px;
-      background:rgba(255,255,255,.04);
-      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.05);
+      border:1px dashed rgba(255,255,255,.16);
       color:var(--muted);
       font-size:13px;
     }
-    .topAnchor{scroll-margin-top:80px}
-    .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;}
+    .footer{
+      margin-top:18px; color:var(--muted); font-size:12px;
+      display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
+      opacity:.95;
+    }
+    .divider{height:1px;background:rgba(255,255,255,.08);margin:16px 0}
+    .btnline{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      padding:10px 12px;border-radius:12px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      text-decoration:none;font-weight:700;font-size:13px;
+    }
+    .btn:hover{background:rgba(255,255,255,.085)}
   </style>
 </head>
 
 <body>
   <header>
-    <div class="headInner">
-      <a class="brand" href="https://swamiginstitute.com" target="_blank" rel="noopener" aria-label="SwamiG Institute home">
-        <img src="SwamiG.gif" alt="SwamiG Institute logo" />
-        <div class="title">
+    <div class="bar">
+      <!-- Clickable logo -->
+      <a class="logo" href="https://swamiginstitute.com" target="_blank" rel="noopener">
+        <img src="SwamiG.gif" alt="SwamiG Institute Logo" />
+        <div class="t">
           <b>SwamiG Institute</b>
-          <span>Divination Mini Series</span>
+          <span>Obi Orisha (Novice) — Beyond 4-Cowries</span>
         </div>
       </a>
 
-      <nav aria-label="Top navigation">
-        <a class="pill glow-mission" href="https://swamiginstitute.com/missionsgi/" target="_blank" rel="noopener">SGI Mission</a>
-        <a class="pill glow-obipele" href="https://obipele.com" target="_blank" rel="noopener">ObiPele</a>
-        <a class="pill glow-ilekes" href="https://myilekes.com" target="_blank" rel="noopener">My Ilekes</a>
-        <a class="pill glow-warriors" href="https://warriors2026.com" target="_blank" rel="noopener">Warriors 2026</a>
-        <a class="pill apply" href="https://forms.gle/YroX3UXTAwqzE1xS7" target="_blank" rel="noopener">Apply</a>
-        <a class="pill" href="obiorishachart.html">Obi Orisha Chart</a>
-      </nav>
+      <!-- TOP PILLS -->
+      <div class="pills">
+        <!-- NEW PILL (requested) -->
+        <a class="pill" href="obiorishachart.html" title="Open Obi Orisha Chart">
+          <span class="dot" aria-hidden="true"></span>
+          Obi Orisha Chart
+        </a>
+
+        <!-- Existing Apply pill -->
+        <a class="pill primary" href="https://forms.gle/YroX3UXTAwqzE1xS7" target="_blank" rel="noopener">
+          <span class="dot" aria-hidden="true"></span>
+          Apply
+        </a>
+      </div>
     </div>
   </header>
 
   <main class="wrap">
-    <!-- HERO -->
-    <section class="hero topAnchor" id="overview">
-      <div class="heroGrid">
-        <div class="card">
-          <div class="kicker"><span class="dot"></span> Obi Orisha (Novice)</div>
-          <h1>Beyond 4-Cowries</h1>
-          <p class="sub">
-            A structured SGI mini-series for students ready to move beyond basic 4-cowrie practice —
-            introducing Obi Orisha families, daily casting discipline, ethical framing, and certification readiness.
-          </p>
-
-          <div class="ctaRow">
-            <a class="btn primary" href="https://forms.gle/YroX3UXTAwqzE1xS7" target="_blank" rel="noopener">Apply Now</a>
-            <a class="btn" href="obiorishachart.html">Open the Obi Orisha Chart</a>
-            <a class="btn" href="#intro">Obi Orisha Introduction</a>
-            <a class="btn" href="#weeks">See Weekly Plan</a>
-            <a class="btn" href="#cert">Certification</a>
-          </div>
-
-          <div class="miniGrid">
-            <div class="mini">
-              <b>Format</b>
-              <span class="muted">Self-paced + practice logs</span>
-            </div>
-            <div class="mini">
-              <b>Daily Work</b>
-              <span class="muted">16 casts/day + notes</span>
-            </div>
-            <div class="mini">
-              <b>Outcome</b>
-              <span class="muted">Competent beginner skill</span>
-            </div>
-          </div>
+    <section class="hero">
+      <div class="card">
+        <h1>Obi Orisha (Novice)</h1>
+        <p class="sub">
+          A structured mini-series to move beyond 4-cowries: foundation, orientation, simple counting logic,
+          and disciplined practice — in SGI style.
+        </p>
+        <div class="tagrow">
+          <span class="tag">Static HTML • GitHub Pages ready</span>
+          <span class="tag">Practice-first</span>
+          <span class="tag">Ethics + Validation</span>
         </div>
 
-        <div class="card soft">
-          <div style="padding:18px">
-            <div class="sectionTitle">
-              <h2>Course Snapshot</h2>
-              <span>what you’ll be doing</span>
-            </div>
-
-            <div class="row" style="margin-bottom:10px">
-              <span class="badge"><i></i> Ethics + Ire / Ibi</span>
-              <span class="badge"><i></i> Validation Methods</span>
-              <span class="badge"><i></i> Practice Discipline</span>
-            </div>
-
-            <ul class="muted">
-              <li>Learn how to frame questions, establish orientation, and avoid “Yes/No” outcomes from 4-cowrie.</li>
-              <li>Transition into Obi Abata / Obi Orisha patterns and attachments.</li>
-              <li>Cast <b>16x daily</b>, record the pattern, and write a short interpretation.</li>
-              <li>Submit photos + findings for feedback.</li>
-              <li>Use a support chart to validate meaning + ethical direction. <a href="obiorishachart.html">Open the chart</a>.</li>
-            </ul>
-
-            <div class="hr"></div>
-
-            <div class="callout">
-              <b>Best results:</b> treat this like a daily devotional discipline — not “random readings.”
-              Keep a notebook, take photos, and track outcomes.
-            </div>
-          </div>
+        <div class="btnline">
+          <a class="btn" href="obiorishachart.html">Open Obi Orisha Chart</a>
+          <a class="btn" href="https://forms.gle/YroX3UXTAwqzE1xS7" target="_blank" rel="noopener">Apply Now</a>
         </div>
+
+        <div class="note">
+          Tip: Put <b>obiorishachart.html</b> in the same folder as this page so the pill works immediately.
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Quick Orientation</h2>
+        <ul class="list">
+          <li>Start with clarity: what question is being asked?</li>
+          <li>Establish <b>direction</b> and consistent method.</li>
+          <li>Seek <b>Ire</b> (no Ibi) first, then confirm.</li>
+          <li>When Ibi appears, proceed with restraint and validation.</li>
+          <li>Log results; compare outcomes over time.</li>
+        </ul>
+        <div class="divider"></div>
+        <p class="sub" style="margin:0">
+          Use the <b>Obi Orisha Chart</b> pill above whenever you need the family breakdown / reference view.
+        </p>
       </div>
     </section>
 
-    <!-- INTRO -->
-    <section class="card section topAnchor" id="intro">
-      <div class="sectionTitle">
-        <h2>Obi Orisha Introduction</h2>
-        <span>orientation & intent</span>
+    <section class="grid">
+      <div class="card col-8">
+        <h2>Module Flow</h2>
+        <ul class="list">
+          <li><b>Pre-Lesson 0.0</b> — materials, posture, prayer, logging</li>
+          <li><b>Orientation & Direction</b> — consistent setup and question framing</li>
+          <li><b>Establishing Ire (no Ibi)</b> — confirm “good standing” first</li>
+          <li><b>Establishing Ibi</b> — when/why it appears and how to handle it</li>
+          <li><b>Validation</b> — repeatability, witness checks, follow-ups</li>
+        </ul>
+        <div class="note">
+          Certification language and track requirements can live in a separate SGI policy page if you want.
+        </div>
       </div>
 
-      <div class="grid2">
-        <div>
-          <p class="muted">
-            This mini-series is designed to help students transition from “basic 4-cowrie answers”
-            toward a more grounded Obi practice that includes:
-          </p>
-          <ul>
-            <li>Clearer framing (what is being asked, and what is not).</li>
-            <li>Consistent orientation and casting discipline.</li>
-            <li>Ethics: establishing <b>Ire</b> and identifying <b>Ibi</b> without fear-mongering.</li>
-            <li>Validation: confirming meaning through structured methods, not guesswork.</li>
-          </ul>
-        </div>
-
-        <div>
-          <p class="muted">
-            The goal is not to rush students into “advanced priesthood claims,” but to establish a
-            repeatable, teachable foundation.
-          </p>
-          <ul>
-            <li>Daily practice builds pattern recognition.</li>
-            <li>Logs reveal bias and strengthen accuracy.</li>
-            <li>Ethical framing reduces harm and confusion.</li>
-          </ul>
-        </div>
+      <div class="card col-4">
+        <h2>Practice Checklist</h2>
+        <ul class="list">
+          <li>Daily throws: 7–16</li>
+          <li>Write question clearly</li>
+          <li>Record outcome + notes</li>
+          <li>Return in 24–72 hrs to compare</li>
+          <li>Escalate only when consistent</li>
+        </ul>
       </div>
     </section>
 
-    <!-- WEEKLY PLAN -->
-    <section class="card section topAnchor" id="weeks">
-      <div class="sectionTitle">
-        <h2>Weekly Plan</h2>
-        <span>a suggested structure (adaptable)</span>
-      </div>
-
-      <table class="table" role="table" aria-label="Weekly plan table">
-        <thead>
-          <tr>
-            <th style="width:120px">Week</th>
-            <th>Focus</th>
-            <th>Practice & Deliverable</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><b>Week 1</b></td>
-            <td>Orientation & Question Framing</td>
-            <td class="muted">
-              16 casts/day. Practice writing questions with clarity (who/what/when/why).
-              Deliverable: 1-page log summary.
-            </td>
-          </tr>
-          <tr>
-            <td><b>Week 2</b></td>
-            <td>Establishing Ire (no Ibi)</td>
-            <td class="muted">
-              16 casts/day. Record outcomes and check your emotional bias.
-              Deliverable: examples of Ire interpretation + ethical note.
-            </td>
-          </tr>
-          <tr>
-            <td><b>Week 3</b></td>
-            <td>Establishing Ibi</td>
-            <td class="muted">
-              16 casts/day. Learn how to identify Ibi without panic; focus on remedy thinking.
-              Deliverable: Ibi logs + proposed corrective actions.
-            </td>
-          </tr>
-          <tr>
-            <td><b>Week 4</b></td>
-            <td>Validation of the Process</td>
-            <td class="muted">
-              Compare your reading to outcomes, verify meaning via structure.
-              Deliverable: validation worksheet + 3 examples.
-            </td>
-          </tr>
-          <tr>
-            <td><b>Week 5</b></td>
-            <td>Obi Abata / Obi Orisha Families</td>
-            <td class="muted">
-              Begin tracking families and attachments. Deliverable: family chart notes + photos.
-            </td>
-          </tr>
-          <tr>
-            <td><b>Week 6</b></td>
-            <td>Integration & Ethics</td>
-            <td class="muted">
-              Create a personal ethical standard for reading others.
-              Deliverable: 1-page ethics & consent statement.
-            </td>
-          </tr>
-        </tbody>
-      </table>
-
-      <p class="tiny muted" style="margin-top:10px">
-        Tip: Keep your logs consistent — date, question, cast, interpretation, outcome, and reflections.
-      </p>
-    </section>
-
-    <!-- CERTIFICATION -->
-    <section class="card section topAnchor" id="cert">
-      <div class="sectionTitle">
-        <h2>Certification Readiness</h2>
-        <span>what SGI looks for</span>
-      </div>
-
-      <div class="grid2">
-        <div>
-          <h3 style="margin:0 0 6px">Minimum Requirements</h3>
-          <ul class="muted">
-            <li>Consistent daily casting and logging.</li>
-            <li>Demonstrated Ire/Ibi differentiation.</li>
-            <li>Ability to explain reasoning (not just “guess”).</li>
-            <li>Ethical boundaries for reading others.</li>
-          </ul>
-        </div>
-
-        <div>
-          <h3 style="margin:0 0 6px">Submission Package</h3>
-          <ul class="muted">
-            <li>Photos of select casts.</li>
-            <li>Weekly log summaries.</li>
-            <li>Interpretation notes showing improvement.</li>
-            <li>Short statement: your ethical code + limitations.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="hr"></div>
-
-      <div class="row">
-        <a class="btn primary" href="https://forms.gle/YroX3UXTAwqzE1xS7" target="_blank" rel="noopener">Apply for the Mini-Series</a>
-        <a class="btn" href="obiorishachart.html">Open Obi Orisha Chart</a>
-        <a class="btn" href="#overview">Back to Top</a>
-      </div>
-    </section>
-
-    <footer class="card">
-      <b>SwamiG Institute (SGI)</b> — educational content for disciplined practice.
-      <div class="hr"></div>
-      <div class="tiny">
-        Disclaimer: This course content is for educational and spiritual development purposes. It is not medical, legal, or financial advice.
-      </div>
-      <div class="tiny muted" style="margin-top:8px">
-        File set detected in your folder: <span class="mono">index.html</span>, <span class="mono">obiorishachart.html</span>, <span class="mono">SwamiG.gif</span>.
-      </div>
-    </footer>
+    <div class="footer">
+      <span>© <span id="yr"></span> SwamiG Institute • We Seek No Followers</span>
+      <span>For education & spiritual development. Not medical/legal/financial advice.</span>
+    </div>
   </main>
+
+  <script>
+    document.getElementById("yr").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
